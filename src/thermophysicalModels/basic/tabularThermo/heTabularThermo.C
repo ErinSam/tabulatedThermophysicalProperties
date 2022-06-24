@@ -188,6 +188,24 @@ Foam::heTabularThermo<BasicTabularThermo, MixtureType>::heTabularThermo
     this->psi_.oldTime();
 }
 
+template<class BasicTabularThermo, class MixtureType>
+Foam::heTabularThermo<BasicTabularThermo, MixtureType>::heTabularThermo
+(
+    const fvMesh& mesh,
+    const word& phaseName,
+    const word& dictionaryName
+)
+:
+    heThermo<BasicTabularThermo, MixtureType>(mesh, phaseName, dictionaryName),
+    TTable("constant/TTable")
+{
+    TTable.outOfBounds(extrapolation2DTable<scalar>::CLAMP);
+
+    calculate();
+
+    // Switch on saving old time
+    this->psi_.oldTime();
+}
 
 // * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
 
