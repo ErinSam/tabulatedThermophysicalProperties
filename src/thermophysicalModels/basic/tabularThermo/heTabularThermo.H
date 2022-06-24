@@ -79,6 +79,13 @@ public:
             const fvMesh&,
             const word& phaseName
         );
+	
+	heTabularThermo
+	(
+	    const fvMesh&,
+	    const word& phaseName,
+	    const word& dictionaryName
+	);
 
     extrapolation2DTable<scalar> TTable;
 
