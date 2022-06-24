@@ -196,6 +196,21 @@ Foam::heRhoTabularThermo<BasicTabularThermo, MixtureType>::heRhoTabularThermo
     calculate();
 }
 
+template<class BasicTabularThermo, class MixtureType> 
+Foam::heRhoTabularThermo<BasicTabularThermo, MixtureType>::heRhoTabularThermo
+(
+    const fvMesh& mesh,
+    const word& phaseName,
+    const word& dictionaryName
+)
+:
+    heThermo<BasicTabularThermo, MixtureType>(mesh, phaseName, dicionaryName),
+    TTable("constant/TTable")
+{
+    TTable.outOfBounds(extrapolation2DTable<scalar>::CLAMP);
+    calculate();
+}
+
 
 // * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
 
