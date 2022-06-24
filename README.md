@@ -1,5 +1,5 @@
 # tabulatedThermophysicalProperties
-Tabulated thermophysical properties for OpenFOAM 7
+Tabulated thermophysical properties for ~OpenFOAM 7~ OpenFOAM v2006. It compiles against the src of OFv2006. I (Erin) made only a very few changes. 
 
 ## REQUIREMENTS
 
